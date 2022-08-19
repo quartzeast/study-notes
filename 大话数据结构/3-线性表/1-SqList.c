@@ -26,7 +26,7 @@ typedef struct
 } SqList;
 
 /* 初始化顺序线性表 */
-Status InitList(SqList *L)
+Status InitList(SqList* L)
 {
     L->length = 0;
     return OK;
@@ -43,7 +43,7 @@ Status ListEmpty(SqList L)
 }
 
 /* 初始条件：顺序线性表L已存在。操作结果：将L重置为空表 */
-Status ClearList(SqList *L)
+Status ClearList(SqList* L)
 {
     L->length = 0;
     return OK;
@@ -58,7 +58,7 @@ int ListLength(SqList L)
 /* 初始条件：顺序线性表L已存在，1≤i≤ListLength(L) */
 /* 操作结果：用e返回L中第i个数据元素的值,注意i是指位置，第1个位置的数组是从0开始
  */
-Status GetElem(SqList L, int i, ElemType *e)
+Status GetElem(SqList L, int i, ElemType* e)
 {
     if (L.length == 0 || i < 1 || i > L.length)
         return ERROR;
@@ -75,8 +75,7 @@ int LocateElem(SqList L, ElemType e)
     int i;
     if (L.length == 0)
         return 0;
-    for (i = 0; i < L.length; i++)
-    {
+    for (i = 0; i < L.length; i++) {
         if (L.data[i] == e)
             break;
     }
@@ -88,13 +87,12 @@ int LocateElem(SqList L, ElemType e)
 
 /* 初始条件：顺序线性表L已存在,1≤i≤ListLength(L)， */
 /* 操作结果：在L中第i个位置之前插入新的数据元素e，L的长度加1 */
-Status ListInsert(SqList *L, int i, ElemType e)
+Status ListInsert(SqList* L, int i, ElemType e)
 {
     int k;
     if (L->length == MAXSIZE) /* 顺序线性表已经满 */
         return ERROR;
-    if (i < 1 ||
-        i > L->length + 1) /* 当i比第一位置小或者比最后一位置后一位置还要大时 */
+    if (i < 1 || i > L->length + 1) /* 当i比第一位置小或者比最后一位置后一位置还要大时 */
         return ERROR;
 
     if (i <= L->length) /* 若插入数据位置不在表尾 */
@@ -111,7 +109,7 @@ Status ListInsert(SqList *L, int i, ElemType e)
 
 /* 初始条件：顺序线性表L已存在，1≤i≤ListLength(L) */
 /* 操作结果：删除L的第i个数据元素，并用e返回其值，L的长度减1 */
-Status ListDelete(SqList *L, int i, ElemType *e)
+Status ListDelete(SqList* L, int i, ElemType* e)
 {
     int k;
     if (L->length == 0) /* 线性表为空 */
@@ -139,14 +137,13 @@ Status ListTraverse(SqList L)
     return OK;
 }
 
-void unionL(SqList *La, SqList Lb)
+void unionL(SqList* La, SqList Lb)
 {
     int La_len, Lb_len, i;
     ElemType e;
     La_len = ListLength(*La);
     Lb_len = ListLength(Lb);
-    for (i = 1; i <= Lb_len; i++)
-    {
+    for (i = 1; i <= Lb_len; i++) {
         GetElem(Lb, i, &e);
         if (!LocateElem(*La, e))
             ListInsert(La, ++La_len, e);
@@ -192,8 +189,7 @@ int main()
 
     GetElem(L, 5, &e);
     printf("第5个元素的值为：%d\n", e);
-    for (j = 3; j <= 4; j++)
-    {
+    for (j = 3; j <= 4; j++) {
         k = LocateElem(L, j);
         if (k)
             printf("第%d个元素的值为%d\n", k, j);
@@ -202,8 +198,7 @@ int main()
     }
 
     k = ListLength(L); /* k为表长 */
-    for (j = k + 1; j >= k; j--)
-    {
+    for (j = k + 1; j >= k; j--) {
         i = ListDelete(&L, j, &e); /* 删除第j个数据 */
         if (i == ERROR)
             printf("删除第%d个数据失败\n", j);
