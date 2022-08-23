@@ -1,5 +1,10 @@
+/*
+    素数求和
+        「代码复制」是程序质量不良的表现
+ */
 #include <stdio.h>
 
+/* 判断素数 */
 int isPrime(int i)
 {
     int ret = 1;
@@ -13,6 +18,7 @@ int isPrime(int i)
     return ret;
 }
 
+/* 求和函数 */
 void sum(int begin, int end)
 {
     int i;

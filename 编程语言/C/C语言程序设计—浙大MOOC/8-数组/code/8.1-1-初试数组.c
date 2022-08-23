@@ -1,3 +1,11 @@
+/*
+    初试数组
+        • 如何写⼀个程序计算⽤户输⼊的数字的平均数？
+            int x
+            double sum = 0;
+            int cnt = 0;
+
+*/
 #include <stdio.h>
 
 int main()
@@ -28,7 +36,7 @@ int main()
         int i;
         double average = sum / cnt;
         printf("%f\n", sum / cnt);
-        for (i = 0; i < cnt; i++) { // 遍历数组
+        for (i = 0; i < cnt; i++) {     // 遍历数组
             if (numbers[i] > average) { // 使用数组
                 printf("%d\n", numbers[i]);
             }
