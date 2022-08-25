@@ -29,9 +29,17 @@
 
 int main(void)
 {
-    char *s = "Hello World";
-    s[0] = 'B';
+    int i = 0;
+    char *s = "Hello World"; // 字符串常量位于程序的代码段，且是只读的，不能进行写操作
+    char *s2 = "Hello World";
+    char s3[] = "Hello World";
+    // s[0] = 'B';
 
-    printf("Here!s[0]=%c\n", s[0]);
+    printf("&i=%p\n", &i);
+    printf("s =%p\n", s);
+    printf("s2=%p\n", s2);
+    printf("s3=%p\n", s3);
+    s3[0] = 'B';
+    printf("Here!s3[0]=%c\n", s3[0]);
     return 0;
 }
