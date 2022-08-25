@@ -12,7 +12,7 @@
     程序参数
         • int main(int argc, char const *argv[])
         • argv[0]是命令本⾝
-        • 当使⽤Unix的符号链接时，反映符号链接的名字
+            • 当使⽤Unix的符号链接时，反映符号链接的名字
 */
 #include <stdio.h>
 
