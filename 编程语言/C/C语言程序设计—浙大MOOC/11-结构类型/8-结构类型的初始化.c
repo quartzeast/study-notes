@@ -1,4 +1,3 @@
-// 结构的初始化
 #include <stdio.h>
 
 struct date {
