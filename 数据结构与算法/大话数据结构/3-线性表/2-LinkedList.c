@@ -21,9 +21,9 @@ Status visit(ElemType c)
     return OK;
 }
 
-typedef struct Node {
+typedef struct _node {
     ElemType data;
-    struct Node* next;
+    struct _node* next;
 } Node;
 typedef struct Node* LinkList; /* 定义LinkedList */
 

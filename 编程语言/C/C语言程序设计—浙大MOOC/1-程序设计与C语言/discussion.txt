@@ -1,0 +1,34 @@
+main()的样子
+
+为什么看到有的书上的main()是void main()，而我们课件上是int main()？还有main()里面那句return 0; 是必须的吗？
+
+关于 int main(void)、 int main() 和 void main() ：
+
+void main() { ... } 是错误的写法，int main() 是老的标准形式，是 1989 年的 C89 标准的规定。在 1999年的 C99 标准（以及目前最新的 2011 年的 C11 标准）的 main() 函数形式已改为下面这两种形式：
+
+
+
+不带参数时使用：
+int main(void) {   ...  }
+
+带有两个参数的形式为：
+int main(int argc, char *argv[]) {  ... }
+
+
+
+而 int main() { ... } 这种形式已不再是新标准的形式，在 C89 标准之前的 main() { ... } 是更古老的形式，在 C99 标准中不再定义这种形式。
+
+现在写不带参量的 C 程序时，应该用最 int main(void) { ... } 替代 int main()， void main()，特别是 void main() 这种形式是不可取的。按标准规范写可保证程序代码在具备良好的可移植性，让程序在符合标准的编译器上都能够正常运行。
+
+关于 return 0
+对于函数而言， int foo() 表示返回整型，void foo() 表示没有返回值。所以 int main(void) 函数最后要返回一个整型。
+main
+ 函数的返回值，在 C99 和 C11 标准中指出 main 函数的返回值类型必须是 int 
+型，将返回值传递给程序的调用者(如操作系统)。其中返回 0 时表示 C 程序正常退出，返回非 0 
+是数值表示非正常退出。在书写程序时，应显式地将返回值写出来。main 函数缺少返回值，可能导致程序产生未知行为。
+
+另外补充：
+在 C++ 标准中，int main() 和 int main(void) 两种形式一样，一般 C++ 代码使用前者。
+C 语言标准：
+C99：https://www.open-std.org/JTC1/SC22/WG14/www/standards
+C11：https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
