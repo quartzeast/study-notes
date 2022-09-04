@@ -1,11 +1,3 @@
-/*
-    初试数组
-        • 如何写⼀个程序计算⽤户输⼊的数字的平均数？
-            int x
-            double sum = 0;
-            int cnt = 0;
-
-*/
 #include <stdio.h>
 
 int main()
@@ -18,16 +10,6 @@ int main()
     while (x != -1) {
         // 对数组中的元素赋值，这个程序是危险的，因为输入的数据可能超过 100 个
         numbers[cnt] = x;
-
-        {
-            int i;
-            printf("%d\t", cnt);
-            for (i = 0; i <= cnt; i++) {
-                printf("%d\t", numbers[i]);
-            }
-            printf("\n");
-        }
-
         sum += x;
         cnt++;
         scanf("%d", &x);

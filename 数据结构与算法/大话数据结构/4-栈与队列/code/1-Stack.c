@@ -48,17 +48,16 @@ int StackLength(SqStack S) { return S.top + 1; }
 Status GetTop(SqStack S, SElemType *e) {
     if (S.top == -1)
         return ERROR;
-    else
-        *e = S.data[S.top];
+
+    *e = S.data[S.top];
     return OK;
 }
 
 /* 插入元素e为新的栈顶元素 */
 Status Push(SqStack *S, SElemType e) {
     if (S->top == MAXSIZE - 1) /* 栈满 */
-    {
         return ERROR;
-    }
+
     S->top++;            /* 栈顶指针增加一 */
     S->data[S->top] = e; /* 将新插入元素赋值给栈顶空间 */
     return OK;
@@ -87,8 +86,8 @@ int main() {
     int j;
     SqStack s;
     int e;
-    if (InitStack(&s) == OK)
-        for (j = 1; j <= 10; j++) Push(&s, j);
+    InitStack(&s);
+    for (j = 1; j <= 10; j++) Push(&s, j);
     printf("栈中元素依次为：");
     StackTraverse(s);
     Pop(&s, &e);
