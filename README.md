@@ -1,1 +1,1 @@
-# book-notes
+# study-notes
