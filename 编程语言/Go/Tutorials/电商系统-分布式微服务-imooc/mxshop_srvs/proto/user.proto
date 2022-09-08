@@ -1,10 +1,10 @@
 syntax = "proto3";
 import "google/protobuf/empty.proto";
-option go_package = ".;proto";
+option go_package = "./;proto";
 
 service User {
   rpc GetUserList(PageInfo) returns (UserListResponse);  // 用户列表
-  rpc GetUserMobile(MobileRequest)
+  rpc GetUserByMobile(MobileRequest)
       returns (UserInfoResponse);  // 通过 mobile 查询用户
   rpc GetUserById(IdRequest) returns (UserInfoResponse);  // 通过id查询用户
   rpc CreateUser(CreateUserInfo) returns (UserInfoResponse);  // 添加用户
@@ -34,7 +34,9 @@ message CreateUserInfo {
 message UpdateUserInfo {
   int32 id = 1;
   string nickname = 2;
-  uint64 birthday = 3;
+  string gender = 3;
+  string password = 4;
+  uint64 birthday = 5;
 }
 
 message CheckPasswordInfo {
